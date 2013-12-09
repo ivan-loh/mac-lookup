@@ -1,4 +1,4 @@
-node-ieee-oui-lookup
+mac-lookup
 ====================
 
 A [node](http://nodejs.org)  module to fetch, parse, and lookup entries from the IEEE's OUI database. Adapted from [node-ieee-oui-lookup](https://github.com/mrose17/node-ieee-oui-lookup).

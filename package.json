@@ -1,0 +1,24 @@
+{
+  "name": "mac-lookup",
+  "version": "0.0.1",
+  "description": "mac address manufacturer lookup for [node](http://nodejs.org).",
+  "author": "Ivan Loh",
+
+  "main": "index.js",
+  "dependencies": {
+    "line-reader": "~0.2.3",
+    "sqlite3": "~2.1.19"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ivan-loh/mac-lookup.git"
+  },
+  "keywords": [
+    "ieee oui lookup",
+    "mac address lookup"
+  ],
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/ivan-loh/mac-lookup/issues"
+  }
+}

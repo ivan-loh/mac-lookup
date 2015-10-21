@@ -23,7 +23,7 @@ var fetch = function(opts, next) {
     var close = function() {
       outFile.end();
       fs.unlink(txt, function () {
-	    return next(new Error('premature eof'));
+        return next(new Error('premature eof'));
       });
     };
 
@@ -96,7 +96,7 @@ var parse = function (opts, next) {
 };
 
 var options = {
-  url: 'http://standards.ieee.org/develop/regauth/oui/oui.txt',
+  url: 'http://standards-oui.ieee.org/oui.txt',
   sql: __dirname + '/oui.db',
   txt: __dirname + '/oui.txt'
 };

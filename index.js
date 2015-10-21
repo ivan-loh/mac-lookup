@@ -90,6 +90,10 @@ exports.rebuild = function (next) {
 
 exports.lookup = function (oui, next) {
 
+  if (!oui || oui.length < 6) {
+    return next(new Error('Invalid Request'),null);
+  }
+
   var _oui = oui.split('-').join('').split(':').join('').toUpperCase();
   if (_oui.length != 6) {
     return next(new Error('invalid OUI'));

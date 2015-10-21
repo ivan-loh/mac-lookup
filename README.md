@@ -1,5 +1,8 @@
-mac-lookup
-====================
+# mac-lookup
+
+[![NPM](https://nodei.co/npm/mac-lookup.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/sqlite3/)
+
+[![Build Status](https://travis-ci.org/ivan-loh/mac-lookup.svg?branch=master)](https://travis-ci.org/ivan-loh/mac-lookup)
 
 A [node](http://nodejs.org)  module to fetch, parse, and lookup entries from the IEEE's OUI database. Adapted from [node-ieee-oui-lookup](https://github.com/mrose17/node-ieee-oui-lookup).
 

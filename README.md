@@ -40,3 +40,15 @@ mac.rebuild(function (err) {
   console.log('rebuild completed');
 });
 ```
+
+Iterate thru the entire db
+```js
+
+function done() { console.log('done'); }
+
+mac.each(function (err, result) {
+  console.log('oui',  result.oui);
+  console.log('name', result.name);
+}, done);
+
+```

@@ -108,3 +108,14 @@ exports.lookup = function (oui, next) {
   });
 
 };
+
+exports.each = function (each, next) {
+
+  var db    = options.db;
+  var query = 'SELECT * FROM oui';
+
+  db.each(query, function (err, row) {
+    each(err, row);
+  }, next);
+
+};

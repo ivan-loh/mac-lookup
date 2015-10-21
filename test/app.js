@@ -34,4 +34,11 @@ describe('mac-lookup', function (done) {
     })
   });
 
+  it('should iterate the whole db and expect proper data', function (done) {
+    app.each(function (err, result) {
+      result.oui.should.have.length(6);
+      should.exist(result.name);
+    }, done)
+  });
+
 });

@@ -10,7 +10,7 @@ var lineReader = require('line-reader');
 /**
  * Some consts
  */
-
+var rebuilding = false;
 var options = {
   url: 'http://standards-oui.ieee.org/oui.txt',
   sql: __dirname + '/oui.db',
@@ -45,14 +45,15 @@ function parse(next) {
 
       var stmt = 'INSERT INTO oui(oui, name) VALUES($oui, $name)';
       var parm = { $oui: oui, $name: name };
+
       db.run(stmt, parm, function (err) {
-        if (err) {
-          console.warn(err);
-        }
+        if (err) { console.warn(err); }
       });
+
     }).then(function () {
-        return next();
-      });
+      rebuilding = false;
+      return next();
+    });
 
   };
 
@@ -73,6 +74,11 @@ function parse(next) {
 
 
 exports.rebuild = function (next) {
+
+  if (rebuilding) {
+    return next(new Error('Already Rebuilding'));
+  }
+  rebuilding = true;
 
   try {
     fs.unlinkSync(options.txt);

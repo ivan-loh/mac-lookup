@@ -1,6 +1,7 @@
 'use strict';
 
 var app    = require('../index');
+var fs     = require('fs');
 var should = require('should');
 
 describe('mac-lookup', function (done) {
@@ -40,5 +41,19 @@ describe('mac-lookup', function (done) {
       should.exist(result.name);
     }, done)
   });
+
+  it('rebuilds without a hitch', function (done) {
+    this.timeout(0);
+
+    app.rebuild(function (err) {
+      should.not.exist(err);
+      var threshold = Date.now() - ( 1 * 60 * 60 * 1000);
+      var stat      = fs.statSync('./oui.db');
+      should.exist(stat);
+      stat.mtime.getTime().should.be.above(threshold);
+
+      done();
+    })
+  })
 
 });

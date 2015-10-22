@@ -1,6 +1,6 @@
 # mac-lookup
 
-[![NPM](https://nodei.co/npm/mac-lookup.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/sqlite3/)
+[![NPM](https://nodei.co/npm/mac-lookup.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/mac-lookup/)
 
 [![Build Status](https://travis-ci.org/ivan-loh/mac-lookup.svg?branch=master)](https://travis-ci.org/ivan-loh/mac-lookup)
 

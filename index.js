@@ -24,7 +24,7 @@ function parse(next) {
 
   var process = function(db) {
 
-    lineReader.eachLine(options.txt, function(line) {
+    lineReader.eachLine(options.txt, function(line, last) {
 
       line = line.trimLeft().trimRight();
       if (line.length < 15) { return; }
@@ -50,10 +50,11 @@ function parse(next) {
         if (err) { console.warn(err); }
       });
 
-    }).then(function () {
-      rebuilding = false;
-      return next();
-    });
+      if (last) {
+        rebuilding = false;
+        return next();
+      }
+    })
 
   };
 

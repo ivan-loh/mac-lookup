@@ -16,12 +16,23 @@ npm install mac-lookup
 ```
 
 
-
 Usage
 -----
 
 ```js
-var mac = require('mac-lookup');
+// Config is optional
+var config = {
+  sql: './oui.db',
+  txt: './oui.txt',
+  url: 'http://linuxnet.ca/ieee/oui.txt'
+}
+
+var mac = require('mac-lookup')(config);
+
+// if defining a custom config, make sure to rebuild at least once to generate sqlite3 db
+mac.rebuild();
+
+// ...
 ```
 
 To lookup a MAC prefix:
@@ -33,7 +44,15 @@ mac.lookup('00:00:00', function (err, name) {
 });
 ```
 
-If you think the internal DB is outdated, you can rebuild it from the latest [file](http://standards.ieee.org/develop/regauth/oui/oui.txt) with:
+You can also look up the full mac address with or without full dash, dot, or colon notation:
+```js
+mac.lookup('0000.0000.0000',function (err, name) {
+  if (err) throw err;
+  // name will be null if not found.
+  console.log('0000.0000.0000 -> ' + name);
+});)
+
+If you think the internal DB is outdated, you can rebuild it from the latest [file](http://linuxnet.ca/ieee/oui.txt) with:
 ```js
 mac.rebuild(function (err) {
   if (err) throw err;

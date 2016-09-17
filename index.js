@@ -101,7 +101,7 @@ exports.lookup = function (oui, next) {
     return next(new Error('Invalid Request'),null);
   }
 
-  var _oui = oui.split('-').join('').split(':').join('').split('.').join('').toUpperCase();
+  var _oui = oui.split(/[-.:]/).join('').toUpperCase().substring(0,6);
   if (_oui.length != 6) {
     return next(new Error('invalid OUI'));
   }

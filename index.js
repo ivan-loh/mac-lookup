@@ -63,7 +63,7 @@ MacLookup.prototype.rebuild = function(next) {
           return;
         }
 
-        var stmt = 'INSERT INTO oui(oui, name) VALUES($oui, $name)';
+        var stmt = 'INSERT OR REPLACE INTO oui(oui, name) VALUES($oui, $name)';
         var parm = {
           $oui: oui,
           $name: name

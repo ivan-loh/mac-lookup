@@ -2,7 +2,8 @@
 
 [![NPM](https://nodei.co/npm/mac-lookup.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/mac-lookup/)
 
-[![Build Status](https://travis-ci.org/ivan-loh/mac-lookup.svg?branch=master)](https://travis-ci.org/scr1p7ed/mac-lookup) [![Dependencies Status](https://david-dm.org/ivan-loh/mac-lookup.svg)](https://david-dm.org/scr1p7ed/mac-lookup)
+[![Build Status](https://travis-ci.org/cuteboi/mac-lookup.svg?branch=master)](https://travis-ci.org/cuteboi/mac-lookup) [![Dependencies Status](https://david-dm.org/cuteboi/mac-lookup.svg)](https://david-dm.org/cuteboi/mac-lookup)<span class="badge-npmversion"><a href="https://npmjs.org/package/mac-lookup" title="View this project on NPM"><img src="https://img.shields.io/npm/v/mac-lookup.svg" alt="NPM version" /></a></span>
+<span class="badge-npmdownloads"><a href="https://npmjs.org/package/mac-lookup" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/mac-lookup.svg" alt="NPM downloads" /></a></span>
 
 A [node](http://nodejs.org)  module to fetch, parse, and lookup entries from the IEEE's OUI database. Adapted from [node-ieee-oui-lookup](https://github.com/mrose17/node-ieee-oui-lookup).
 

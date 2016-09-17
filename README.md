@@ -51,6 +51,7 @@ mac.lookup('0000.0000.0000',function (err, name) {
   // name will be null if not found.
   console.log('0000.0000.0000 -> ' + name);
 });)
+```
 
 If you think the internal DB is outdated, you can rebuild it from the latest [file](http://linuxnet.ca/ieee/oui.txt) with:
 ```js

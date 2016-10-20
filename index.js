@@ -28,6 +28,7 @@ var MacLookup = function(config) {
   this.options.sql = val('sql', config);
   this.options.txt = val('txt', config);
   this.options.db = new sqlite3.Database(this.options.sql);
+
 };
 
 MacLookup.prototype.rebuild = function(next) {
@@ -35,49 +36,41 @@ MacLookup.prototype.rebuild = function(next) {
   var parse = function(next) {
 
     var process = function(db) {
-
+      var lineCount = 0;
       lineReader.eachLine(ml.options.txt, function(line, last) {
-
+        lineCount++;//
         line = line.trimLeft().trimRight();
-        if (line.length < 15) {
-          return;
-        }
+        if (line.length > 15) {
+          // Get OUI
+          var oui = line.substr(0, 8).split('-').join('');
+          if ((oui) && (oui.length === 6)) {
+            // Get Name
+            var name;
+            line = line.substr(9).trimLeft();
+            if (line.substr(0, 5) === '(hex)') {
+              name = line.substr(6).trimLeft();
+            }
+            if (name && name.length > 0) {
+              var stmt = 'INSERT OR REPLACE INTO oui(oui, name) VALUES($oui, $name)';
+              var parm = {
+                $oui: oui,
+                $name: name
+              };
 
-        // Get OUI
-        var oui = line.substr(0, 8).split('-').join('');
-        if ((oui) && (oui.length !== 6)) {
-          return;
-        }
-
-        // Get Name
-        var name;
-        line = line.substr(9).trimLeft();
-        if (line.substr(0, 5) === '(hex)') {
-          name = line.substr(6).trimLeft();
-        }
-        if (name === undefined) {
-          return;
-        }
-        if (name.length < 1) {
-          return;
-        }
-
-        var stmt = 'INSERT OR REPLACE INTO oui(oui, name) VALUES($oui, $name)';
-        var parm = {
-          $oui: oui,
-          $name: name
-        };
-
-        db.run(stmt, parm, function(err) {
-          if (err) {
-            console.warn(err);
-            console.warn(stmt);
-            console.warn(parm);
+              db.run(stmt, parm, function(err) {
+                if (err) {
+                  console.warn(err);
+                  console.warn(stmt);
+                  console.warn(parm);
+                }
+              });
+            }
           }
-        });
+        }
 
         if (last) {
           ml.rebuilding = false;
+          console.log('That was last line of file with', lineCount, 'lines');
           return next();
         }
       })
@@ -111,11 +104,11 @@ MacLookup.prototype.rebuild = function(next) {
     console.warn('unlinking problem', e);
   }
   request(this.options.url)
-    .on('error', console.error)
-    .on('end', function() {
-      parse(next);
-    })
-    .pipe(fs.createWriteStream(this.options.txt));
+      .on('error', console.error)
+      .on('end', function() {
+        parse(next);
+      })
+      .pipe(fs.createWriteStream(this.options.txt));
 };
 
 MacLookup.prototype.lookup = function(oui, next) {

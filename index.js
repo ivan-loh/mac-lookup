@@ -98,10 +98,12 @@ MacLookup.prototype.rebuild = function(next) {
   }
   this.rebuilding = true;
 
-  try {
-    fs.unlinkSync(this.options.txt);
-  } catch (e) {
-    console.warn('unlinking problem', e);
+  if (fs.existsSync(this.options.txt)) {
+    try {
+      fs.unlinkSync(this.options.txt);
+    } catch (e) {
+      console.warn('unlinking problem', e);
+    }
   }
   request(this.options.url)
       .on('error', console.error)

@@ -28,7 +28,6 @@ var MacLookup = function(config) {
   this.options.sql = val('sql', config);
   this.options.txt = val('txt', config);
   this.options.db = new sqlite3.Database(this.options.sql);
-
 };
 
 MacLookup.prototype.rebuild = function(next) {
@@ -150,4 +149,4 @@ MacLookup.prototype.each = function(each, next) {
 
 };
 
-module.exports = new MacLookup();
+module.exports = MacLookup;

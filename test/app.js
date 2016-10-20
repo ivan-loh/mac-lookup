@@ -1,6 +1,7 @@
 'use strict';
 
 var app    = require('../index');
+app = new app();
 var fs     = require('fs');
 var should = require('should');
 

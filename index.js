@@ -70,7 +70,7 @@ MacLookup.prototype.rebuild = function(next) {
 
         if (last) {
           ml.rebuilding = false;
-          console.log('That was last line of file with', lineCount, 'lines');
+          //console.log('Last entry read with', lineCount, 'lines');
           return next();
         }
       })

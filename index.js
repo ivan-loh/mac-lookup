@@ -27,6 +27,7 @@ var MacLookup = function(config) {
   this.options.url = val('url', config);
   this.options.sql = val('sql', config);
   this.options.txt = val('txt', config);
+  this.options.useCachedTxt = val('useCachedTxt', config);
   this.options.db = new sqlite3.Database(this.options.sql);
 
 };
@@ -98,19 +99,27 @@ MacLookup.prototype.rebuild = function(next) {
   }
   this.rebuilding = true;
 
-  if (fs.existsSync(this.options.txt)) {
+
+  const cachedFileExists = fs.existsSync(this.options.txt);
+  if (cachedFileExists && !this.options.useCachedTxt) {
     try {
       fs.unlinkSync(this.options.txt);
     } catch (e) {
       console.warn('unlinking problem', e);
     }
   }
-  request(this.options.url)
-      .on('error', console.error)
-      .on('end', function() {
-        parse(next);
-      })
-      .pipe(fs.createWriteStream(this.options.txt));
+
+  if (cachedFileExists && this.options.useCachedTxt) {
+    parse(next);
+  } else {
+    request(this.options.url)
+        .on('error', console.error)
+        .on('end', function() {
+          parse(next);
+        })
+        .pipe(fs.createWriteStream(this.options.txt));
+  }
+
 };
 
 MacLookup.prototype.lookup = function(oui, next) {

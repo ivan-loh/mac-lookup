@@ -1,0 +1,34 @@
+OUI/MA-L                                                    Organization
+company_id                                                  Organization
+                                                            Address
+
+E0-43-DB   (hex)		Shenzhen ViewAt Technology Co. Ltd
+E043DB     (base 16)		Shenzhen ViewAt Technology Co. Ltd
+				9A,Microprofit,6th Gaoxin South Road, High-Tech Industrial Park, Nanshan, Shenzhen, CHINA.
+				shenzhen  guangdong  518057
+				CN
+
+24-05-F5   (hex)		Integrated Device Technology (Malaysia) Sdn. Bhd.
+2405F5     (base 16)		Integrated Device Technology (Malaysia) Sdn. Bhd.
+				Phase 3, Bayan Lepas FIZ
+				Bayan Lepas  Penang  11900
+				MY
+
+2C-30-33   (hex)		Netgear
+2C3033     (base 16)		Netgear
+				350 East Plumeria Drive
+				San Jose  null  95134
+				US
+
+3C-D9-2B   (hex)		Hewlett-Packard Company
+3CD92B     (base 16)		Hewlett-Packard Company
+				11445 Compaq Center Drive
+				Houston    77070
+				US
+
+9C-8E-99   (hex)		Hewlett-Packard Company
+9C8E99     (base 16)		Hewlett-Packard Company
+				11445 Compaq Center Drive
+				Houston    77070
+				US
+

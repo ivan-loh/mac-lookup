@@ -4,6 +4,8 @@ var app    = require('../index');
 var fs     = require('fs');
 var should = require('should');
 
+app = new app();
+
 describe('mac-lookup', function (done) {
 
   it('should return a manufacturer', function (done) {
@@ -13,8 +15,8 @@ describe('mac-lookup', function (done) {
     });
   });
 
-  it('should handle dashes', function (done){
-    app.lookup('00-00-00', function (err, result){
+ it('should handle dashes', function (done){
+ app.lookup('00-00-00', function (err, result){
       result.should.be.eql('Xerox Corporation');
       done();
     });
@@ -69,5 +71,4 @@ describe('mac-lookup', function (done) {
       done();
     })
   })
-
 });

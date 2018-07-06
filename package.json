@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "line-reader": "~0.4.0",
-    "request": "~2",
-    "sqlite3": "~4.0.1"
+    "request": "^2.87.0",
+    "sqlite3": "^4.0.1"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,6 @@
   },
   "devDependencies": {
     "mocha": "^5.2.0",
-    "should": "^7.1.1"
+    "should": "^13.2.1"
   }
 }

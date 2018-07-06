@@ -13,6 +13,7 @@ A [node](http://nodejs.org)  module to fetch, parse, and lookup entries from the
 
 Install
 -------
+**NOTE:** This project currently only works with Node V8.* and below. This is due to an issue with the SQLite 3 module. [See This Issue](https://github.com/mapbox/node-sqlite3/issues/749) for more details. 
 
 ```js
 npm install mac-lookup

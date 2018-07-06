@@ -10,7 +10,7 @@
   "dependencies": {
     "line-reader": "~0.4.0",
     "request": "~2",
-    "sqlite3": "~3.1.0"
+    "sqlite3": "~4.0.1"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,7 @@
     "url": "https://github.com/ivan-loh/mac-lookup/issues"
   },
   "devDependencies": {
-    "mocha": "^2.3.3",
+    "mocha": "^5.2.0",
     "should": "^7.1.1"
   }
 }

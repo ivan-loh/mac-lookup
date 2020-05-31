@@ -75,3 +75,10 @@ mac.each(function (err, result) {
 }, done);
 
 ```
+
+
+#### Additional Notes
+our csv file for ouis are obtained from here
+```
+wget https://standards.ieee.org/develop/regauth/oui/oui.csv
+```

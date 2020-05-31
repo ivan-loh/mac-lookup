@@ -1,6 +1,6 @@
 {
   "name": "mac-lookup",
-  "version": "0.1.7",
+  "version": "1.0.0",
   "description": "mac address manufacturer lookup for [node](http://nodejs.org).",
   "author": "Ivan Loh",
   "main": "index.js",
@@ -8,9 +8,7 @@
     "test": "NODE_ENV=testing node_modules/.bin/mocha --recursive"
   },
   "dependencies": {
-    "line-reader": "~0.4.0",
-    "request": "~2",
-    "sqlite3": "~3.1.0"
+    "@fast-csv/parse": "^4.3.0"
   },
   "repository": {
     "type": "git",
@@ -25,7 +23,7 @@
     "url": "https://github.com/ivan-loh/mac-lookup/issues"
   },
   "devDependencies": {
-    "mocha": "^2.3.3",
-    "should": "^7.1.1"
+    "mocha": "^7.2.0",
+    "should": "^13.2.3"
   }
 }

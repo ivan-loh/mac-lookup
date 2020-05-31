@@ -26,20 +26,38 @@ npm install mac-lookup
 Usage
 -----
 
+Loading using Config:
 ```js
 // Config is optional
 var config = {
-  sql: './oui.db',
-  txt: './oui.txt',
-  url: 'http://linuxnet.ca/ieee/oui.txt'
+  csv: './oui.csv'
 }
 
 var mac = require('mac-lookup')(config);
 
 // if defining a custom config, make sure to rebuild at least once to generate sqlite3 db
 mac.rebuild();
+mac.load(done => {
+  done();
+});
 
 // ...
+```
+
+Loading Using Promises:
+```js
+'use strict';
+
+const {promisify} = require('util');
+const macLookup   = require('mac-lookup');
+
+const asyncMacLookupLoad = promisify(macLookup.load).bind(macLookup);
+
+(async function () {
+    await asyncMacLookupLoad();
+    const name = macLookup.lookup('000000')
+    console.log(name);
+}());
 ```
 
 To lookup a MAC prefix:

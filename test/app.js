@@ -6,37 +6,41 @@ var should = require('should');
 
 describe('mac-lookup', function (done) {
 
+  before(done => {
+    app.load(done);
+  });
+
   it('should return a manufacturer', function (done) {
     app.lookup('000000', function (err, result){
-      result.should.be.eql('Xerox Corporation');
+      result.should.be.eql('XEROX CORPORATION');
       done();
     });
   });
 
   it('should handle dashes', function (done){
     app.lookup('00-00-00', function (err, result){
-      result.should.be.eql('Xerox Corporation');
+      result.should.be.eql('XEROX CORPORATION');
       done();
     });
   });
 
   it('should handle colons', function (done){
     app.lookup('00:00:00', function (err, result){
-      result.should.be.eql('Xerox Corporation');
+      result.should.be.eql('XEROX CORPORATION');
       done();
     });
   });
 
   it('should handle periods', function (done){
     app.lookup('0000.00', function (err, result){
-      result.should.be.eql('Xerox Corporation');
+      result.should.be.eql('XEROX CORPORATION');
       done();
     });
   });
 
   it('should handle full mac', function (done){
     app.lookup('00:00:00:00:00:00', function (err, result){
-      result.should.be.eql('Xerox Corporation');
+      result.should.be.eql('XEROX CORPORATION');
       done();
     });
   });

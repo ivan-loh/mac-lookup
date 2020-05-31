@@ -1,6 +1,6 @@
 {
   "name": "mac-lookup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "mac address manufacturer lookup for [node](http://nodejs.org).",
   "author": "Ivan Loh",
   "main": "index.js",
